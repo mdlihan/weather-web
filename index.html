@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css cdn -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- tailwindcss cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- axios cdn -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+      integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>weather web</title>
+  </head>
+
+  <!-- loding program start-->
+  <body>
+    <div
+      id="preloading"
+      class="h-full bg-black fixed z-50 w-full flex justify-center items-center"
+    >
+      <div
+        class="bg-white h-48 w-48 rounded-full relative overflow-hidden flex justify-center items-center"
+      >
+        <div
+          class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-12 w-52 absolute animate-spin"
+        ></div>
+      </div>
+      <div
+        class="bg-black h-44 w-44 rounded-full absolute text-white flex justify-center items-center text-2xl"
+      >
+        Loading...
+      </div>
+    </div>
+    <!-- loding program end-->
+    <div class="sm:w-1/2 m-auto p-4 sm:shadow-lg">
+      <!-- header start -->
+      <header>
+        <div class="flex justify-between items-center">
+          <p class="font-bold text-xl">°C</p>
+
+          <p class="font-semibold font-sans text-xl">Weather App</p>
+
+          <p class="font-light text-xl">
+            <i class="fa-solid fa-rotate-right"></i>
+          </p>
+        </div>
+        <!-- search bar start -->
+
+        <form
+          class="mt-6 flex justify-center items-center rounded-xl border-2 shadow-blue-500/50"
+        >
+          <input
+            class="px-4 py-2 bg-transparent outline-none w-full"
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Enter a erea name :-"
+            required
+          />
+          <p>
+            <button
+              id="search-button"
+              class="flex items-center bg-rose-300 p-3 font-2xl rounded-r-lg"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </p>
+        </form>
+
+        <select
+          name="temperature"
+          id="temperature"
+          class="mt-6 border-2 border-sky-500 rounded-md text-sky-500"
+        >
+          <option value="celsius" selected>celsius</option>
+          <option value="fahrenheit">fahrenheit</option>
+        </select>
+
+        <!-- search bar end -->
+      </header>
+      <!-- header end -->
+
+      <!-- main start -->
+      <main class="text-center my-28">
+        <h1 id="city-name" class="text-sky-500 text-xl font-semibold">
+          new york
+        </h1>
+        <img
+          class="sm:h-24 max-sm:h-12 rounded-full block m-auto my-9"
+          src="img/rain.jpg"
+          alt="img/rain.jpg"
+        />
+        <h1 id="cel" class="mb-2 text-4xl font-semibold text-sky-500">6°</h1>
+        <p id="des" class="mb-1 text-sm">Clear Sky</p>
+        <h2 id="weather" class="text-neutral-500 font-bold text-xl">Clear</h2>
+      </main>
+      <!-- main end -->
+
+      <!-- footer start -->
+      <footer>
+        <div class="flex justify-evenly text-white">
+          <div>
+            <div class="flex items-center bg-sky-500 px-4 py-2 rounded-xl w-36">
+              <p><i class="fa-solid fa-temperature-full"></i></p>
+              <div class="ml-6">
+                <h3>Feels like</h3>
+                <p id="Feels-like" class="font-bold">21.24°</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center bg-sky-500 px-4 py-2 rounded-xl w-36">
+              <p><i class="fa-solid fa-droplet"></i></p>
+              <div class="ml-6">
+                <h3>Humidity</h3>
+                <p id="humidity" class="font-bold">39%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-evenly text-white mt-4">
+          <div>
+            <div class="flex items-center bg-sky-500 px-4 py-2 rounded-xl w-36">
+              <p><i class="fa-solid fa-wind"></i></p>
+              <div class="ml-2">
+                <h3>Wind speed</h3>
+                <p id="wind_speed" class="font-bold">1.7 m/s</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center bg-sky-500 px-4 py-2 rounded-xl w-36">
+              <p><i class="fa-solid fa-gauge"></i></p>
+              <div class="ml-6">
+                <h3>Pressure</h3>
+                <p id="pressure" class="font-bold">1015 hpa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer end -->
+    </div>
+  </body>
+  <!-- script cdn -->
+  <script src="script.js"></script>
+</html>
